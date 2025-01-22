@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
+// ダミーデータ
 const projects = [
   {
     id: '1',
@@ -24,36 +25,20 @@ const projects = [
   },
 ];
 
-export async function getStaticPaths() {
-  const paths = projects.map((project) => ({
-    params: { id: project.id },
+// 静的ルートを生成
+export async function generateStaticParams() {
+  return projects.map((project) => ({
+    id: project.id,
   }));
-
-  return {
-    paths,
-    fallback: false,
-  };
 }
 
-export async function getStaticProps({ params }: { params: { id: string } }) {
+export default function ProjectPage({ params }: { params: { id: string } }) {
   const project = projects.find((p) => p.id === params.id);
 
   if (!project) {
-    return {
-      notFound: true,
-    };
+    notFound(); // プロジェクトが見つからない場合
   }
 
-  return {
-    props: { project },
-  };
-}
-
-export default function ProjectPage({
-  project,
-}: {
-  project: { id: string; title: string; longDescription: string };
-}) {
   return (
     <div className="min-h-screen bg-white py-20">
       <div className="container mx-auto px-4">

@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
-// This would typically come from a database or API
 const projects = [
   {
     id: '1',
@@ -25,13 +24,36 @@ const projects = [
   },
 ];
 
-export default function ProjectPage({ params }: { params: { id: string } }) {
+export async function getStaticPaths() {
+  const paths = projects.map((project) => ({
+    params: { id: project.id },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }: { params: { id: string } }) {
   const project = projects.find((p) => p.id === params.id);
 
   if (!project) {
-    notFound();
+    return {
+      notFound: true,
+    };
   }
 
+  return {
+    props: { project },
+  };
+}
+
+export default function ProjectPage({
+  project,
+}: {
+  project: { id: string; title: string; longDescription: string };
+}) {
   return (
     <div className="min-h-screen bg-white py-20">
       <div className="container mx-auto px-4">

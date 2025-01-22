@@ -14,9 +14,9 @@ export default function AboutMe() {
         <h2 className="text-3xl font-bold mb-8 text-center">About Me</h2>
         <div className="max-w-2xl mx-auto">
           <p className="text-gray-600 mb-6">
-            I'm a newbie programmer who's been in the IT industry for about a
-            year. I love feeling my own growth, so I study every day. I'm
-            friendly, so feel free to talk to me.
+            I&apos;m a newbie programmer who&apos;s been in the IT industry for
+            about a year. I love feeling my own growth, so I study every day.
+            I&apos;m friendly, so feel free to talk to me.
           </p>
           <h3 className="text-xl font-semibold mb-4">My Skills</h3>
           <div className="flex flex-wrap gap-2">

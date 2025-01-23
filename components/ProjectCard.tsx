@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 interface ProjectCardProps {
-  id: number;
+  id: string;
   title: string;
   description: string;
 }

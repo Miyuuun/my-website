@@ -4,28 +4,28 @@ import Link from 'next/link';
 // This would typically come from a database or API
 const projects = [
   {
-    id: 1,
+    id: '1',
     title: 'E-commerce Site',
     description:
       'A full-stack e-commerce application built with Next.js and Stripe.',
     longDescription: 'This project is a comprehensive e-commerce solution...',
   },
   {
-    id: 2,
+    id: '2',
     title: 'Task Manager',
     description:
       'A React-based task management app with drag-and-drop functionality.',
     longDescription: 'The Task Manager is a productivity tool designed to...',
   },
   {
-    id: 3,
+    id: '3',
     title: 'Weather App',
     description: 'A weather forecast application using OpenWeatherMap API.',
     longDescription: 'This weather application provides real-time forecasts...',
   },
 ];
 
-export default function ProjectPage({ params }: { params: { id: number } }) {
+export default function ProjectPage({ params }: { params: { id: string } }) {
   const project = projects.find((p) => p.id === params.id);
 
   if (!project) {

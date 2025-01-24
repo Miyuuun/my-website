@@ -27,7 +27,7 @@ export default function Hero() {
         />
       ))}
       <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div className="text-center">
+        <div className="text-center font-serif">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
             Welcome to Luxury Haven
           </h1>

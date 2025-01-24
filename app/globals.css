@@ -14,11 +14,6 @@
   }
 }
 
-h1,
-h2 {
-  font-size: 200%;
-}
-
 p {
   font-size: 16px;
 }
@@ -35,7 +30,7 @@ body {
     opacity: 0;
   }
   to {
-    /* transform: translateX(10px); 端を少し重ねる */
+    transform: translateX(10px);
     opacity: 1;
   }
 }
@@ -102,56 +97,5 @@ body {
   }
   to {
     opacity: 1;
-  }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
-.text {
-  position: absolute;
-  bottom: 11%;
-  left: 2%;
-  animation: slideIn03 3s 1;
-}
-
-@keyframes slideIn03 {
-  0% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 0;
-    transform: translateY(500px);
-  }
-  80% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.text02 {
-  position: absolute;
-  top: 0%;
-  right: 10%;
-  animation: slideIn04 3s 1;
-}
-
-@keyframes slideIn04 {
-  0% {
-    opacity: 0;
-  }
-  30% {
-    opacity: 0;
-    transform: translateY(-500px);
-  }
-  90% {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

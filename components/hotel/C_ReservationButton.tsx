@@ -1,72 +1,30 @@
-'use client';
-
-import { useEffect } from 'react';
-import Image from 'next/image';
-import emitter from './eventEmitter';
-
 export default function ReservationButton() {
-  useEffect(() => {
-    const onFooterVisible = () => {
-      console.log('Footer is visible! Triggering animation...');
-      // アニメーションや処理をここで実行
-    };
-
-    emitter.on('footerVisible', onFooterVisible);
-
-    return () => {
-      emitter.off('footerVisible', onFooterVisible);
-    };
-  }, []);
-
   return (
-    <section className="relative min-h-[35vh] sm:min-h-[50vh] md:min-h-[45vh] lg:min-h-[110vh] xl:min-h-[140vh] 2xl:min-h-[140vh] flex bg-slate-900">
-      <div>
-        <div className={`slideinLeft absolute top-0 left-0`}>
-          <Image
-            src="/hotel_wine.jpg"
-            alt="Hotel Wine Left"
-            width={800}
-            height={200}
-            style={{ width: '55vw', height: 'auto' }}
-          />
-        </div>
+    <section className="relative py-16 bg-slate-900 ">
+      <div className="mx-auto px-6">
         <div
-          className="text02 py-10 font-serif font-bold text-right px-30 text-white"
-          style={{ fontSize: 'clamp(0.1rem, 2vw, 4rem)' }}
-        >
-          <h1>MAIN TEXT</h1>
-          <p style={{ fontSize: 'clamp(0.1rem, 2vw, 4rem)' }}>
-            Enter the sample text here. <br></br>I hope you can make something
-            really good.
-          </p>
-        </div>
-      </div>
-      <div>
-        <div
-          className={`slideinRight 
-           absolute bottom-0 right-0`}
-        >
-          <Image
-            src="/hotel_meal.jpg"
-            alt="Hotel Wine Right"
-            width={800}
-            height={200}
-            style={{ width: '55vw', height: 'auto' }}
-          />
-        </div>
-        <div
-          className="text font-serif font-bold text-white"
-          style={{ fontSize: 'clamp(0.1rem, 2vw, 4rem)' }}
-        >
-          <h1>SUB TEXT</h1>
-          <p style={{ fontSize: 'clamp(0.1rem, 2vw, 4rem)' }}>
-            Enter the sample text here. <br></br>I hope you can make something
-            really good.
-          </p>
-        </div>
-      </div>
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-40"
+          style={{ backgroundImage: "url('/book.jpg')" }}
+        />
 
-      <div className="absolute inset-0 bg-black bg-opacity-10 flex items-center justify-center"></div>
+        <div className="py-10 font-serif text-right px-30 text-white">
+          <h1 className="text-5xl mb-auto font-bold">About the rooms</h1>
+          <p className="text-2xl">
+            Choose from three room types to suit your accommodation style.
+            <br></br>Enjoy the best hotel experience with the plan that&apos;s
+            right for you.
+          </p>
+        </div>
+        <a
+          href="#_"
+          className="relative px-6 py-3 font-bold text-white rounded-lg group left-10"
+        >
+          <span className="absolute inset-0 w-full h-full transition duration-300 transform -translate-x-1 -translate-y-1 bg-gray-700 ease opacity-60 group-hover:translate-x-0 group-hover:translate-y-0"></span>
+          <span className="absolute inset-0 w-full h-full transition duration-300 transform translate-x-1 translate-y-1 bg-gray-800 ease opacity-50 group-hover:translate-x-0 group-hover:translate-y-0 mix-blend-screen"></span>
+          <span className="relative">Book a room</span>
+        </a>
+        {/* <div className="absolute inset-0 bg-black bg-opacity-10 flex items-center justify-center"></div> */}
+      </div>
     </section>
   );
 }

@@ -44,9 +44,9 @@ export default function FadingImages() {
   }, []);
 
   return (
-    <section className="py-16 overflow-hidden">
+    <section className="overflow-hidden py-24 bg-gray-100 relative">
       <div className="container mx-auto px-4">
-        <div className="relative h-96 ">
+        <div className="relative">
           {slides.map((slide, index) => (
             <div
               key={slide.src}
@@ -54,24 +54,27 @@ export default function FadingImages() {
                 index === currentSlide ? 'opacity-100' : 'opacity-0'
               }`}
             >
-              {/* 説明文: 左下 */}
+              {/* 説明文: 左側 */}
               <div className="w-1/2 pl-8">
                 <div className="bg-black bg-opacity-50 text-white p-4 rounded">
                   <h2 className="text-xl font-bold mb-2">{slide.alt}</h2>
                   <p>{slide.description}</p>
                 </div>
               </div>
-
               {/* 画像: 右寄せ */}
               <div className="w-1/2 flex justify-end pr-8">
-                <Image
-                  src={slide.src || '/placeholder.svg'}
-                  alt={slide.alt}
-                  width={600} // 画像の実際の解像度に合わせる
-                  height={100} // 画像の実際の解像度に合わせる
-                  objectFit="cover"
-                  className="rounded-lg"
-                />
+                <div
+                  className="relative"
+                  style={{ width: '500px', height: '100px' }}
+                >
+                  <Image
+                    src={slide.src || '/placeholder.svg'}
+                    alt={slide.alt}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-lg"
+                  />
+                </div>
               </div>
             </div>
           ))}

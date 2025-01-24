@@ -1,0 +1,268 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700i,900i');
+
+/* 定義された色 */
+:root {
+  --green: #7ceaa4;
+  --purple: #3b3d54;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Playfair Display', serif;
+  color: rgba(172, 170, 190, 1);
+  text-rendering: optimizeLegibility;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--purple);
+  font-size: 14px;
+  overflow: hidden;
+}
+
+.wrap {
+  perspective-origin: 50% 50%;
+}
+
+.page {
+  margin: 3%;
+  max-width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 1.4vw;
+}
+
+.page h2 {
+  font-weight: bold;
+  font-size: 6.5vw;
+  font-weight: 900;
+  font-style: italic;
+  color: #dad8ec;
+}
+
+.svg {
+  stroke: var(--green);
+  position: absolute;
+  bottom: -100vh;
+  transform-style: preserve-3d;
+}
+
+.svg:nth-child(1) {
+  left: 3%;
+  animation: raise1 18s linear infinite;
+  animation-delay: -3s;
+  transform: scale(0.8) rotate(40deg);
+  z-index: -6;
+  filter: blur(0px);
+}
+
+.svg:nth-child(2) {
+  left: 12%;
+  animation: raise2 22s linear infinite;
+  animation-delay: -5s;
+  transform: scale(1.1) rotate(110deg);
+  z-index: -5;
+  filter: blur(1px);
+}
+
+.svg:nth-child(3) {
+  left: 25%;
+  animation: raise3 20s linear infinite;
+  animation-delay: -4s;
+  transform: scale(0.7) rotate(250deg);
+  z-index: -4;
+  filter: blur(2px);
+}
+
+.svg:nth-child(4) {
+  right: 5%;
+  animation: raise1 24s linear infinite;
+  animation-delay: -6s;
+  transform: scale(0.9) rotate(135deg);
+  z-index: -6;
+  filter: blur(0px);
+}
+
+.svg:nth-child(5) {
+  right: 18%;
+  animation: raise2 19s linear infinite;
+  animation-delay: -2s;
+  transform: scale(1.2) rotate(90deg);
+  z-index: -5;
+  filter: blur(1px);
+}
+
+.svg:nth-child(6) {
+  right: 30%;
+  animation: raise3 25s linear infinite;
+  animation-delay: -4.5s;
+  transform: scale(0.6) rotate(70deg);
+  z-index: -4;
+  filter: blur(2px);
+}
+
+.svg:nth-child(7) {
+  left: 45%;
+  animation: raise1 21s linear infinite;
+  animation-delay: -1s;
+  transform: scale(1) rotate(200deg);
+  z-index: -5;
+  filter: blur(1px);
+}
+
+.svg:nth-child(8) {
+  left: 65%;
+  animation: raise2 23s linear infinite;
+  animation-delay: -3.5s;
+  transform: scale(0.8) rotate(150deg);
+  z-index: -6;
+  filter: blur(0px);
+}
+
+.svg:nth-child(9) {
+  right: 10%;
+  animation: raise3 20s linear infinite;
+  animation-delay: -2s;
+  transform: scale(0.9) rotate(80deg);
+  z-index: -5;
+  filter: blur(1px);
+}
+
+.svg:nth-child(10) {
+  right: 25%;
+  animation: raise1 26s linear infinite;
+  animation-delay: -7s;
+  transform: scale(0.7) rotate(50deg);
+  z-index: -4;
+  filter: blur(2px);
+}
+
+/* メディアクエリを追加して画面サイズに応じた変化を加える */
+@media (max-width: 640px) {
+  /* スマートフォンの小さい画面 */
+  .svg:nth-child(1) {
+    transform: scale(0.5) rotate(40deg) !important;
+  }
+  .svg:nth-child(2) {
+    transform: scale(0.9) rotate(110deg) !important;
+  }
+  .svg:nth-child(3) {
+    transform: scale(0.4) rotate(250deg) !important;
+  }
+  .svg:nth-child(4) {
+    transform: scale(0.6) rotate(135deg) !important;
+  }
+  .svg:nth-child(5) {
+    transform: scale(1) rotate(90deg) !important;
+  }
+  .svg:nth-child(6) {
+    transform: scale(0.4) rotate(70deg) !important;
+  }
+  .svg:nth-child(7) {
+    transform: scale(0.7) rotate(200deg) !important;
+  }
+  .svg:nth-child(8) {
+    transform: scale(0.5) rotate(150deg) !important;
+  }
+  .svg:nth-child(9) {
+    transform: scale(0.6) rotate(80deg) !important;
+  }
+  .svg:nth-child(10) {
+    transform: scale(0.5) rotate(50deg) !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  /* タブレットなどの中くらいの画面 */
+  .svg:nth-child(1) {
+    transform: scale(0.6) rotate(40deg) !important;
+  }
+  .svg:nth-child(2) {
+    transform: scale(1) rotate(110deg) !important;
+  }
+  .svg:nth-child(3) {
+    transform: scale(0.5) rotate(250deg) !important;
+  }
+  .svg:nth-child(4) {
+    transform: scale(0.7) rotate(135deg) !important;
+  }
+  .svg:nth-child(5) {
+    transform: scale(1.1) rotate(90deg) !important;
+  }
+  .svg:nth-child(6) {
+    transform: scale(0.6) rotate(70deg) !important;
+  }
+  .svg:nth-child(7) {
+    transform: scale(0.8) rotate(200deg) !important;
+  }
+  .svg:nth-child(8) {
+    transform: scale(0.7) rotate(150deg) !important;
+  }
+  .svg:nth-child(9) {
+    transform: scale(0.8) rotate(80deg) !important;
+  }
+  .svg:nth-child(10) {
+    transform: scale(0.7) rotate(50deg) !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  /* 大きな画面、デスクトップ用 */
+  .svg:nth-child(1) {
+    transform: scale(0.8) rotate(40deg) !important;
+  }
+  .svg:nth-child(2) {
+    transform: scale(1.1) rotate(110deg) !important;
+  }
+  .svg:nth-child(3) {
+    transform: scale(0.7) rotate(250deg) !important;
+  }
+  .svg:nth-child(4) {
+    transform: scale(0.9) rotate(135deg) !important;
+  }
+  .svg:nth-child(5) {
+    transform: scale(1.2) rotate(90deg) !important;
+  }
+  .svg:nth-child(6) {
+    transform: scale(0.6) rotate(70deg) !important;
+  }
+  .svg:nth-child(7) {
+    transform: scale(1) rotate(200deg) !important;
+  }
+  .svg:nth-child(8) {
+    transform: scale(0.8) rotate(150deg) !important;
+  }
+  .svg:nth-child(9) {
+    transform: scale(0.9) rotate(80deg) !important;
+  }
+  .svg:nth-child(10) {
+    transform: scale(0.7) rotate(50deg) !important;
+  }
+}
+
+@keyframes raise1 {
+  to {
+    bottom: 150vh;
+    transform: scale(0.3) rotate(135deg);
+  }
+}
+
+@keyframes raise2 {
+  to {
+    bottom: 150vh;
+    transform: scale(0.6) rotate(160deg);
+  }
+}
+
+@keyframes raise3 {
+  to {
+    bottom: 150vh;
+    transform: scale(0.9) rotate(200deg);
+  }
+}

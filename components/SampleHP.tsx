@@ -8,7 +8,7 @@ export default function SampleWebsites() {
   // 動的なルーティング用に name を key とする
   const websites = [
     { name: 'Hotle', route: 'hotel' },
-    { name: 'Portfolio', route: 'portfolio' },
+    { name: 'Vlog', route: 'vlog' },
     { name: 'E-commerce', route: 'ecommerce' },
     { name: 'Blog', route: 'blog' },
   ];

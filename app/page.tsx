@@ -1,8 +1,8 @@
-import Hero from '../components/Hero';
-import Projects from '../components/Projects';
-import AboutMe from '../components/AboutMe';
-import SampleHP from '../components/SampleHP';
-import Contact from '../components/Contact';
+import Hero from '../components/main/Hero';
+import Projects from '../components/main/Projects';
+import AboutMe from '../components/main/AboutMe';
+import SampleHP from '../components/main/SampleHP';
+import Contact from '../components/main/Contact';
 
 export default function Home() {
   return (

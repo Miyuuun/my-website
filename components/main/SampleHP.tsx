@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation'; // 修正ポイント
+import { useRouter } from 'next/navigation';
 
 export default function SampleWebsites() {
   const router = useRouter();
@@ -8,14 +8,18 @@ export default function SampleWebsites() {
   // 動的なルーティング用に name を key とする
   const websites = [
     { name: 'Hotle', route: 'hotel' },
-    { name: 'Vlog', route: 'vlog' },
-    { name: 'E-commerce', route: 'ecommerce' },
     { name: 'Blog', route: 'blog' },
+    { name: 'E-commerce', route: 'ecommerce' },
+    // { name: 'Blog', route: 'blog' },
   ];
 
   // ボタンクリックでページ遷移
   const handleEditClick = (route: string) => {
-    router.push(`/websites/${route}`);
+    router.push(`/${route}`);
+  };
+
+  const navigateToBlog = () => {
+    router.push('/blog?showWelcome=true');
   };
 
   return (
@@ -39,7 +43,11 @@ export default function SampleWebsites() {
             {websites.map((website, index) => (
               <button
                 key={index}
-                onClick={() => handleEditClick(website.route)}
+                onClick={() =>
+                  website.name === 'Blog'
+                    ? navigateToBlog()
+                    : handleEditClick(website.route)
+                }
                 className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm shadow hover:bg-blue-200 cursor-pointer transition"
               >
                 {website.name}

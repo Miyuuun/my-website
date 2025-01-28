@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Header() {
+export default function WelcomeScreen() {
   return (
     <header className="bg-gray-800 shadow-md">
       <div className="container mx-auto flex justify-between items-center px-1 py-2">

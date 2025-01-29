@@ -10,18 +10,34 @@ const blogPosts: BlogPost[] = [
   {
     id: '1',
     title: 'My First Blog Post',
-    date: '2023-05-01',
+    date: '2024-12-15',
     content:
       "This is the full content of my first blog post. It's been an exciting journey starting this blog, and I can't wait to share more of my thoughts and experiences with you all.",
-    imageUrl: '/room1.jpg?height=400&width=800',
+    imageUrl: '/soccer.jpg?height=auto&width=800',
   },
   {
     id: '2',
     title: 'Learning Next.js',
-    date: '2023-05-15',
+    date: '2024-12-28',
     content:
       "Next.js has been an amazing framework to learn. Its file-based routing system, server-side rendering capabilities, and built-in optimizations have made building this blog a breeze. In this post, I'll dive deeper into some of the key features that have impressed me the most.",
-    imageUrl: '/hotel_wine.jpg?height=400&width=800',
+    imageUrl: '/coffee.jpg?height=auto&width=800',
+  },
+  {
+    id: '3',
+    title: 'Afternoontea',
+    date: '2025-01-18',
+    content:
+      "This is the full content of my first blog post. It's been an exciting journey starting this blog, and I can't wait to share more of my thoughts and experiences with you all.",
+    imageUrl: '/afternoon.jpg?height=auto&width=800',
+  },
+  {
+    id: '4',
+    title: 'Beach',
+    date: '2025-01-15',
+    content:
+      "Next.js has been an amazing framework to learn. Its file-based routing system, server-side rendering capabilities, and built-in optimizations have made building this blog a breeze. In this post, I'll dive deeper into some of the key features that have impressed me the most.",
+    imageUrl: '/walking.jpg?height=auto&width=800',
   },
   // Add more blog posts here
 ];
@@ -50,8 +66,10 @@ export default function BlogPost() {
         src={post.imageUrl || '/placeholder.svg'}
         alt={post.title}
         width={800}
-        height={400}
+        height={1000}
         className="w-full h-64 object-cover rounded-lg mb-8"
+        style={{ width: 800, height: 'auto' }}
+        priority={post.id === '1'} // idが'1'の場合のみ優先的にロード
       />
       <div className="prose prose-invert max-w-none">
         {post.content ? (

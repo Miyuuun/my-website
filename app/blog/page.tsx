@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, usePathname } from 'next/navigation';
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -16,27 +16,44 @@ const blogPosts: BlogPost[] = [
   {
     id: '1',
     title: 'My First Blog Post',
-    date: '2023-05-01',
-    excerpt:
-      "This is my very first blog post. I'm excited to share my thoughts with you!",
-    imageUrl: '/room1.jpg?height=200&width=300',
+    date: '2024-12-15',
+    content:
+      "This is the full content of my first blog post. It's been an exciting journey starting this blog, and I can't wait to share more of my thoughts and experiences with you all.",
+    imageUrl: '/soccer.jpg?height=auto&width=800',
   },
   {
     id: '2',
     title: 'Learning Next.js',
-    date: '2023-05-15',
-    excerpt:
-      "I've been learning Next.js and I'm amazed by its capabilities. Here's what I've learned so far.",
-    imageUrl: '/hotel_wine.jpg?height=200&width=300',
+    date: '2024-12-28',
+    content:
+      "Next.js has been an amazing framework to learn. Its file-based routing system, server-side rendering capabilities, and built-in optimizations have made building this blog a breeze. In this post, I'll dive deeper into some of the key features that have impressed me the most.",
+    imageUrl: '/coffee.jpg?height=auto&width=800',
+  },
+  {
+    id: '3',
+    title: 'Afternoontea',
+    date: '2025-01-18',
+    content:
+      "This is the full content of my first blog post. It's been an exciting journey starting this blog, and I can't wait to share more of my thoughts and experiences with you all.",
+    imageUrl: '/afternoon.jpg?height=auto&width=800',
+  },
+  {
+    id: '4',
+    title: 'Beach',
+    date: '2025-01-15',
+    content:
+      "Next.js has been an amazing framework to learn. Its file-based routing system, server-side rendering capabilities, and built-in optimizations have made building this blog a breeze. In this post, I'll dive deeper into some of the key features that have impressed me the most.",
+    imageUrl: '/walking.jpg?height=auto&width=800',
   },
   // Add more blog posts here
 ];
 
 export default function Home() {
   const [filteredPosts, setFilteredPosts] = useState(blogPosts);
+  const searchParams = useSearchParams();
+  const params = usePathname();
 
   // 遷移元がない、もしくは遷移元がblogより上であればWelcomeScreenを表示
-  const searchParams = useSearchParams();
   let showWelcome = true;
   if (searchParams.get('showWelcome'))
     showWelcome = searchParams.get('showWelcome') === 'true';
@@ -51,13 +68,15 @@ export default function Home() {
   }, [showWelcome]);
 
   useEffect(() => {
-    // WelcomeScreenが表示中はスクロールを無効化
-    document.body.style.overflow = 'hidden';
-
-    // WelcomeScreenが消えた後にスクロールを有効化
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
+    if (params.endsWith('true')) {
+      // WelcomeScreenが表示中はスクロールを無効化
+      document.body.style.overflow = 'hidden';
+    } else {
+      // WelcomeScreenが消えた後にスクロールを有効化
+      return () => {
+        document.body.style.overflow = 'auto';
+      };
+    }
   }, []);
 
   const handleGetStartedClick = () => {
@@ -69,16 +88,6 @@ export default function Home() {
     const filtered = blogPosts.filter((post) => post.date >= date);
     setFilteredPosts(filtered);
   };
-
-  React.useEffect(() => {
-    // WelcomeScreenが表示中はスクロールを無効化
-    document.body.style.overflow = 'hidden';
-
-    // WelcomeScreenが消えた後にスクロールを有効化
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, []);
 
   return (
     <main className="min-h-screen flex flex-col">
